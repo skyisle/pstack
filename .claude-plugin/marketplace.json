@@ -1,0 +1,19 @@
+{
+  "name": "pstack",
+  "owner": {
+    "name": "alan",
+    "url": "https://github.com/cursor/plugins/tree/main/pstack"
+  },
+  "metadata": {
+    "description": "Local marketplace hosting the Claude Code port of pstack.",
+    "version": "0.14.7-cc.1"
+  },
+  "plugins": [
+    {
+      "name": "pstack",
+      "source": "./",
+      "description": "Rigorous agent workflows: poteto-mode, architect, arena, swarm, how/why, interrogate, reflect, unslop, and 22 principle skills. Ported from Cursor to Claude Code.",
+      "version": "0.14.7-cc.1"
+    }
+  ]
+}
