@@ -25,6 +25,17 @@ Re-apply these when syncing a newer upstream version.
 | `control-ui` / `control-cli` from `cursor-team-kit` | the repo's own `verify-*` skill, else `/webapp-testing`, `/agent-browser`, `/smoke`, `/run` |
 | Cursor dashboard for agent status | `ListAgents` / `claude agents` |
 
+`disable-model-invocation: true` was removed from all 43 skills that carried it. In Claude Code
+that flag is a hard block: the Skill tool refuses the skill and tells the caller not to replicate
+its workflow. pstack's skills call each other constantly (`poteto-mode` routes to `how`, every
+principle leaf, `unslop`, `no-comments`), so with the flag in place every chain dead-ends. The
+cost of removing it is that Claude may now invoke a pstack skill on its own when a request
+matches its description. Restore the flag on any skill you want reserved for typed invocation.
+
+Slash commands are namespaced by the plugin, so pstack's internal references were rewritten
+from `/why` to `/pstack:why` and so on. References to non-pstack commands (`/loop`, `/simplify`,
+`/webapp-testing`, `/smoke`, `/run`) were left alone.
+
 Names normalized to kebab-case so Claude Code loads them: `Make Bot UI` → `make-bot-ui`,
 `Poteto Mode` → `poteto-mode`, `Comment Sicko` → `comment-sicko`.
 
