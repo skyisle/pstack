@@ -44,7 +44,17 @@ Names normalized to kebab-case so Claude Code loads them: `Make Bot UI` → `mak
 
 ## Install
 
+On this machine the tree already lives at `~/.claude/pstack`:
+
 ```
+claude plugin marketplace add ~/.claude/pstack
+claude plugin install pstack@pstack
+```
+
+On another machine:
+
+```
+git clone git@github.com:skyisle/pstack.git ~/.claude/pstack
 claude plugin marketplace add ~/.claude/pstack
 claude plugin install pstack@pstack
 ```
